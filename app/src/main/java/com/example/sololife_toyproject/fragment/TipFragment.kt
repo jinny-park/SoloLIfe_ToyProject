@@ -1,5 +1,6 @@
 package com.example.sololife_toyproject.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.sololife_toyproject.R
+import com.example.sololife_toyproject.contentsList.ContentListActivity
 import com.example.sololife_toyproject.databinding.FragmentTipBinding
 
 
@@ -39,6 +41,18 @@ class TipFragment : Fragment() {
 
         binding.storeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_tipFragment_to_storeFragment)
+        }
+
+        binding.category1.setOnClickListener{
+            val intent = Intent(context,ContentListActivity::class.java)
+            intent.putExtra("category","category1")
+            startActivity(intent)
+        }
+
+        binding.category2.setOnClickListener {
+            val intent = Intent(context, ContentListActivity::class.java)
+            intent.putExtra("category","category2")
+            startActivity(intent)
         }
 
         return binding.root
