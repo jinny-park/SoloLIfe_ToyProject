@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_join.xml" value="0.24954710144927536" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_main.xml" value="0.23867753623188406" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_bookmark.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_home.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_store.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_talk.xml" value="0.4140625" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_tip.xml" value="0.4140625" />
         <entry key="..\:/android_kotlin/SoloLIfe_ToyProject/app/src/main/res/drawable/background_radius.xml" value="0.22962962962962963" />
         <entry key="..\:/android_kotlin/SoloLIfe_ToyProject/app/src/main/res/drawable/background_radius_yellow.xml" value="0.22962962962962963" />
         <entry key="..\:/android_kotlin/SoloLIfe_ToyProject/app/src/main/res/layout/activity_intro.xml" value="0.25" />
