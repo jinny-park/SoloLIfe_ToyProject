@@ -8,28 +8,27 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sololife_toyproject.R
 import com.example.sololife_toyproject.utils.FBAuth
 import com.example.sololife_toyproject.utils.FBRef
 
-class ContentRVAdapter(val context : Context, val items : ArrayList<ContentModel>, val keyList : ArrayList<String>
-    ,val bookmarkIdList : MutableList<String>)
-: RecyclerView.Adapter<ContentRVAdapter.Viewholder>() {
+class BookmarkRVAdapter (val context : Context, val items : ArrayList<ContentModel>, val keyList : ArrayList<String>
+                         , val bookmarkIdList : MutableList<String>)
+    : RecyclerView.Adapter<BookmarkRVAdapter.Viewholder>() {
 
     interface ItemClick {
         fun onClick(view : View, position: Int)
     }
     var itemClick : ItemClick? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentRVAdapter.Viewholder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkRVAdapter.Viewholder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.content_rv_item, parent, false)
         return Viewholder(v)
     }
 
-    override fun onBindViewHolder(holder: ContentRVAdapter.Viewholder, position: Int) {
+    override fun onBindViewHolder(holder: BookmarkRVAdapter.Viewholder, position: Int) {
 
         if(itemClick != null) {
             holder.itemView.setOnClickListener { v->
@@ -47,16 +46,6 @@ class ContentRVAdapter(val context : Context, val items : ArrayList<ContentModel
 
         fun bindItems(item : ContentModel, key: String) {
 
-            //클릭 이벤트 어댑터에서 처리
-
-            itemView.setOnClickListener{
-                Toast.makeText(context, item.title, Toast.LENGTH_LONG).show()
-                val intent = Intent(context, ContentShowActivity::class.java)
-                intent.putExtra("url", item.webUrl)
-                itemView.context.startActivity(intent)
-
-            }
-
             val contentTitle = itemView.findViewById<TextView>(R.id.textArea)
             val imageViewArea = itemView.findViewById<ImageView>(R.id.imageArea)
             val bookmarkArea = itemView.findViewById<ImageView>(R.id.bookmarkArea)
@@ -67,32 +56,6 @@ class ContentRVAdapter(val context : Context, val items : ArrayList<ContentModel
                 bookmarkArea.setImageResource(R.drawable.bookmark_white)
             }
 
-            bookmarkArea.setOnClickListener {
-
-
-                Toast.makeText(context,key,Toast.LENGTH_LONG).show()
-
-                if(bookmarkIdList.contains(key)){
-
-                    //북마크가 있을 때 ( 삭제 )
-                        FBRef.bookmarkRef
-                        .child(FBAuth.getUid())
-                        .child(key)
-                        .removeValue()
-
-                }else{
-
-                    //북마크가 없을 때
-                    FBRef.bookmarkRef
-                        .child(FBAuth.getUid())
-                        .child(key)
-                        .setValue(BookmarkModel(true))
-                }
-
-
-
-
-            }
 
             contentTitle.text = item.title
 

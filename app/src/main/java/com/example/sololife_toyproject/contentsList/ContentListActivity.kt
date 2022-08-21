@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sololife_toyproject.R
+import com.example.sololife_toyproject.utils.FBAuth
 import com.example.sololife_toyproject.utils.FBRef
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,6 +21,8 @@ import com.google.firebase.ktx.Firebase
 class ContentListActivity : AppCompatActivity() {
 
     lateinit var myRef : DatabaseReference
+    val bookmarkIdList = mutableListOf<String>()
+    lateinit var rvAdapter: ContentRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +30,8 @@ class ContentListActivity : AppCompatActivity() {
 
         val items = ArrayList<ContentModel>()
         val itemKeyList = ArrayList<String>()
-        val rvAdapter = ContentRVAdapter(baseContext, items,itemKeyList)// 어댑터 먼저 생성 후 비동기로 데이터 받아온 후 notify method 사용
+
+        rvAdapter = ContentRVAdapter(baseContext, items,itemKeyList,bookmarkIdList)// 어댑터 먼저 생성 후 비동기로 데이터 받아온 후 notify method 사용
 
         // Write a message to the database
         val database = Firebase.database
@@ -75,7 +79,7 @@ class ContentListActivity : AppCompatActivity() {
         rv.layoutManager = GridLayoutManager(this, 2)
 
 
-
+    getBookmarkData()
 
 
 
@@ -124,12 +128,16 @@ class ContentListActivity : AppCompatActivity() {
     }
 
     private fun getBookmarkData(){
+        //firebase에서 북마크 리스트 데이터 불러옴
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-                for (dataModel in dataSnapshot.children) {
+                bookmarkIdList.clear() //데이터 갱신 될때마다 리스트에 중복으로 쌓여서 클리어 해줘야 함
 
+                for (dataModel in dataSnapshot.children) {
+                    bookmarkIdList.add(dataModel.key.toString())
                 }
+                rvAdapter.notifyDataSetChanged()
 
             }
 
@@ -138,7 +146,7 @@ class ContentListActivity : AppCompatActivity() {
                 Log.w("ContentListActivity", "loadPost:onCancelled", databaseError.toException())
             }
         }
-        FBRef.bookmarkRef.addValueEventListener(postListener)
+        FBRef.bookmarkRef.child(FBAuth.getUid()).addValueEventListener(postListener)
 
     }
 

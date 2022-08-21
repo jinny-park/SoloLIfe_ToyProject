@@ -13,6 +13,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookmarkId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="70dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
