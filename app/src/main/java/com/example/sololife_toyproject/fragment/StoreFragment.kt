@@ -26,6 +26,10 @@ class StoreFragment : Fragment() {
         // Inflate the layout for this
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_store, container, false)
 
+        val webView = binding.storeWebView
+
+        webView.loadUrl("https://www.inflearn.com/")
+
         binding.homeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_storeFragment_to_homeFragment)
         }

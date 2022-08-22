@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_board_inside.xml" value="0.26992753623188404" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_board_edit.xml" value="0.26992753623188404" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_board_inside.xml" value="0.25" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_board_write.xml" value="0.26992753623188404" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_content_list.xml" value="0.42864583333333334" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_content_show.xml" value="0.42864583333333334" />
@@ -11,10 +12,13 @@
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_join.xml" value="0.24954710144927536" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_main.xml" value="0.23867753623188406" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/activity_setting.xml" value="0.26992753623188404" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/board_list_item.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/comment_list_item.xml" value="0.26992753623188404" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/content_rv_item.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/custom_dialog.xml" value="0.42864583333333334" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_bookmark.xml" value="0.25" />
-        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_home.xml" value="0.42864583333333334" />
+        <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_store.xml" value="0.42864583333333334" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_talk.xml" value="0.33" />
         <entry key="..\:/SoloLIfe_ToyProject/app/src/main/res/layout/fragment_tip.xml" value="0.33445661331086773" />

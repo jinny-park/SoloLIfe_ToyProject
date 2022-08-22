@@ -1,11 +1,14 @@
 package com.example.sololife_toyproject.board
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.sololife_toyproject.R
+import com.example.sololife_toyproject.utils.FBAuth
 import org.w3c.dom.Text
 
 class BoardListVAdapter(val boardList : MutableList<BoardModel>) : BaseAdapter() {
@@ -26,10 +29,14 @@ class BoardListVAdapter(val boardList : MutableList<BoardModel>) : BaseAdapter()
 
         var view = convertView
 
-        if (view == null) {
+        //뷰가 재활용 되면서 백그라운드 컬러 설정해주는거 오류나서 if문 삭제
+        view = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item, parent, false)
 
-            view = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item, parent, false)
 
+        val itemLinearLayoutView = view?.findViewById<LinearLayout>(R.id.itemView)
+
+        if(boardList[position].uid.equals(FBAuth.getUid())){
+            itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#ffa500"))
         }
 
         val title = view?.findViewById<TextView>(R.id.titleArea)

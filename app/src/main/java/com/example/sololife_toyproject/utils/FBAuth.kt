@@ -20,5 +20,9 @@ class FBAuth {
 
             return dateFormat
         }
+
+        fun getAuth() : FirebaseAuth {
+            return FirebaseAuth.getInstance()
+        }
     }
 }
